@@ -1,5 +1,5 @@
-Chat Room - Gesture Classifier
-==============================
+Gesture Classifier REST Interactions
+=
 
 Chat room instances are requesting connections for the Gesture Classifier
 in order to proceed with the gestures studying for a specific chat room.
