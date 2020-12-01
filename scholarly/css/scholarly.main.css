@@ -1,0 +1,23 @@
+html {
+    font-family: sans-serif;
+}
+
+.banner {
+    background-color: white;
+    width: 100%;
+}
+
+img.banner {
+    width: 80pt;
+}
+
+body {
+    background-color: white;
+    display: block;
+    max-width: 900px;
+    margin: auto;
+}
+
+ol {
+    list-style-type: none;
+}
