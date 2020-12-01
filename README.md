@@ -1,2 +1,2 @@
 # Gezr
-![image](logo/logo.png)
+![image](logo/logo_small.png)
