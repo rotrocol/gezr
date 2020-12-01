@@ -1,2 +1,2 @@
 # Gezr
-![image](gezr.png)
+![image](logo/logo.png)
