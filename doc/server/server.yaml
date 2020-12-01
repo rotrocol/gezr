@@ -1,0 +1,66 @@
+swagger: '2.0'
+info:
+  description: Gezr Main Server
+  version: 1.0.0
+  title: Gezr Server
+  
+paths:
+  /chatrooms:
+    get:
+      summary: lists chatrooms
+      operationId: findChatrooms
+      description: |
+        Returns the list of registered chatrooms
+      produces:
+      - application/json
+      responses:
+        200:
+          description: List of chatrooms
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Room'
+        default:
+          description: Unexpected Error
+  /roomregister:
+    post:
+      summary: register chatroom to server
+      operationId: registerChatroom
+      description: |
+        Method used by the chatrooms to register
+        on initialization
+      consumes:
+      - application/json
+      produces:
+      - aplication/json
+      parameters:
+      - in: body
+        name: Room
+        schema:
+          $ref: '#/definitions/Room'
+      responses:
+        200:
+          description: Object with error field
+          schema:
+            type: object
+            properties: 
+              error:
+                type: string
+                example: Error
+definitions:
+  Room:
+    type: object
+    required:
+    - addr
+    - name
+    - pass
+    properties:
+      addr:
+        type: string
+        example: 192.168.100.2
+      name:
+        type: string
+        example: Room1
+      pass:
+        type: boolean
+        example: true

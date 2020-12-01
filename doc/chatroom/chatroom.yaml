@@ -1,0 +1,102 @@
+swagger: '2.0'
+info:
+  description: Gezr Chatroom
+  version: 1.0.0
+  title: Gezr Chatroom
+  
+paths:
+  /users:
+    get:
+      summary: Lists users
+      operationId: findUsers
+      description: |
+        Returns the list of connected users
+      produces:
+      - application/json
+      responses:
+        200:
+          description: List of users
+          schema:
+            type: array
+            items:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    example: user1
+        default:
+          description: Unexpected Error
+  /stats:
+    get:
+      summary: Get JSON-LD encoded statistics
+      operationId: getStats
+      description: |
+        Returns JSON-LD encoded statistics
+      produces:
+      - application/json
+      responses:
+        200:
+          description: JSON-LD statistics
+          schema:
+            type: array
+            items:
+                type: object
+                properties:
+                  "@id":
+                    type: string
+                    example: "http//gezr.org/resource/Jimmy"
+                  username:
+                    type: string
+                    example: Jimmy
+                  fistbump:
+                    type: number
+                    example: 23
+                  highfive:
+                    type: number
+                    example: 29
+                  
+        default:
+          description: Unexpected Error
+  /connect:
+    post:
+      summary: Connect to chatroom
+      operationId: connectChatroom
+      description: |
+        Method used to connect to chatroom.
+        The chatrooms returns it's connection ports and an unique token to be used when sending the video frames.
+      consumes:
+      - application/json
+      produces:
+      - aplication/json
+      parameters:
+      - in: body
+        name: UserInfo
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: user1
+      responses:
+        200:
+          description: Connection informations and unique token
+          schema:
+            type: object
+            properties: 
+              error:
+                type: string
+                example: Error
+              token:
+                type: string
+                example: 1AqCmme11fFllYbZXjap
+              inputPort:
+                type: number
+                example: 3010
+              outputPort:
+                type: number
+                example: 3011
+              eventPort:
+                type: number
+                example: 3012
+        default:
+          description: Unexpected Error
