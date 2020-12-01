@@ -10,7 +10,7 @@
     <body prefix="schema: http://schema.org/">
         <header>
             <div class="banner">
-                <img class="banner" src="../logo/gezr.ico">
+                <img class="banner" src="../logo/gezr.ico" alt="logo">
             </div>
         </header>
         <div role="contentinfo">
@@ -53,7 +53,6 @@
                     <span>4. </span>
                     <a href="#conclusion">Conclusion</a>
                 </li>
-                </ol>
             </ol>
             <dl>
                 <dt>Authors</dt>
@@ -65,7 +64,8 @@
             </dl>
             </div>
             <article id="what" typeof="schema:ScholarlyArticle" resource="#">
-            <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+                <h1>Gezr - Gesture Analyzer</h1>
+            <section typeof="sa:Abstract" id="abstract">
                 <h2>
                     <span>1. </span>
                     Abstract
@@ -74,7 +74,7 @@
                     WADE Cool Project Solution
                 </p>
             </section>
-            <section id="introduction" role="doc-introduction">
+            <section id="introduction">
                 <h2>
                     <span>2. </span>
                     Introduction
@@ -83,7 +83,7 @@
                     A Web application that detects, classifies, compares, and synchronizes hand and arm gestures performed by users.
                 </p>
             </section>
-            <section id="architecture" role="doc-architecture">
+            <section id="architecture">
                 <h2>
                     <span>3. </span>
                     Architecture
@@ -91,12 +91,20 @@
                 <p>
                     Gezr - Gesture Analyzer application follows a service based structure.
                 </p>
+                <img src="../doc/components.png" alt="components">
                 <section id="module-web">
                     <h3>
                         <span>3.1 </span>
                         Web Interface
                     </h3>
                     <p>Bla bla bla</p>
+                    <img src="../doc/front/about.png" alt="about">
+                    <p>Bla bla bla</p>
+                    <img src="../doc/front/chatrooms.png" alt="chatrooms">
+                    <p>Bla bla bla</p>
+                    <img src="../doc/front/chatroom.png" alt="chatroom">
+                    <p>Bla bla bla</p>
+                    <img src="../doc/front/contact.png" alt="contact">
                 </section>
                 <section id="module-main-server">
                     <h3>
@@ -104,6 +112,7 @@
                         Main Server
                     </h3>
                     <p>Bla bla bla</p>
+                    <img src="../doc/server/rest.png" alt="server">
                 </section>
                 <section id="module-chatroom">
                     <h3>
@@ -111,6 +120,7 @@
                         Chatroom
                     </h3>
                     <p>Bla bla bla</p>
+                    <img src="../doc/chatroom/rest.png" alt="chatroom">
                 </section>
                 <section id="module-gesture-classifier">
                     <h3>
@@ -118,6 +128,7 @@
                         Gesture Classifier
                     </h3>
                     <p>Bla bla bla</p>
+                    <img src="../doc/classifier/rest.png" alt="classifier">
                 </section>
             </section>
             <section id="data">
