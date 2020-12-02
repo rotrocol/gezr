@@ -2,16 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Gesture Analyzer</title>
+        <meta name="viewport" content="width=device-width">
+        <title>Scholarly - Gesture Analyzer</title>
         <link rel="stylesheet" type="text/css" href="css/scholarly.main.css">
         <link rel="icon" type="image/png" href="../logo/gezr.ico">
     </head>
-    <body prefix="schema: http://schema.org/">
+    <body prefix="schema: http://schema.org/ xsd: http://www.w3.org/2001/XMLSchema# sa: https://ns.science.ai/">
         <header>
             <div class="banner">
                 <img class="banner" src="../logo/gezr.ico" alt="logo">
-                <div class="wtf">GEZR</div>
             </div>
         </header>
         <div role="contentinfo">
@@ -56,11 +55,20 @@
                 </li>
             </ol>
             <dl>
-                <dt>Authors</dt>
-                <dd>
-                    <a href="https://github.com/rotrocol">Robert Otrocol</a>
-                    &
-                    <a href="https://github.com/dinosaph">Andra-Maria Oica</a>
+                <dt>
+                    Authors
+                </dt>
+                <dd property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" href="https://github.com/rotrocol" typeof="schemaPerson">
+                    <span property="schema:givenName">Robert</span>
+                    <span property="schema:familyName">Otrocol</span>
+                    </a>
+                </dd>
+                <dd property="schema:author" typeof="sa:ContributorRole">
+                    <a property="schema:author" href="https://github.com/dinosaph" typeof="schemaPerson">
+                    <span property="schema:givenName">Andra-Maria</span>
+                    <span property="schema:familyName">Oica</span>
+                    </a>
                 </dd>
             </dl>
             </div>
@@ -100,8 +108,13 @@
                 </h2>
                 <p>
                     Our Gezr - Gesture Analyzer application follows a service based structure.
-                    Communication between components is done using HTTP and Sockets, used for
-                    transfering video frames.
+                </p>
+                <h3>
+                    Communication:
+                </h3>
+                <p>
+                    Communication between components is done using HTTP and Sockets, mainly for actions
+                    such as video frames transferring, client-room connections and data exchange.
                 </p>
                 <img src="../doc/components.png" alt="components">
                 <section id="module-web">
@@ -126,31 +139,39 @@
                     <h4>
                         About page:
                     </h4>
-                    <p>
-                        <i>Website welcoming page.</i>
-                    </p>
-                    <img src="../doc/front/about.png" alt="about">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/front/about.png" alt="about">
+                        <figcaption>
+                            <i>Website welcoming page.</i>
+                        </figcaption>
+                    </figure>
                     <h4>
                         Chatroom selecting page:
                     </h4>
-                    <p>
-                        <i>Page which provides the user all available chatrooms to join and get stats from.</i>
-                    </p>
-                    <img src="../doc/front/chatrooms.png" alt="chatrooms">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/front/chatrooms.png" alt="chatrooms">
+                        <figcaption>
+                            <i>Page which provides the user all available chatrooms to join and get stats from.</i>
+                        </figcaption>
+                    </figure>
                     <h4>
                         Chatroom specific page:
                     </h4>
-                    <p>
-                        <i>Special chatroom page in which users interact with each other and provide video stream data for backend usage.</i>
-                    </p>
-                    <img src="../doc/front/chatroom.png" alt="chatroom">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/front/chatroom.png" alt="chatroom">
+                        <figcaption>
+                            <i>Special chatroom page in which users interact with each other and provide video stream data for backend usage.</i>
+                        </figcaption>
+                    </figure>
                     <h4>
                         Contact page:
                     </h4>
-                    <p>
-                        <i>Page for project related contact purposes.</i>
-                    </p>
-                    <img src="../doc/front/contact.png" alt="contact">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/front/contact.png" alt="contact">
+                        <figcaption>
+                            <i>Page for project related contact purposes.</i>
+                        </figcaption>
+                    </figure>
                 </section>
                 <section id="module-main-server">
                     <h3>
@@ -184,7 +205,9 @@
                             express
                         </li>
                     </ul>
-                    <img src="../doc/server/rest.png" alt="server">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/server/rest.png" alt="server">
+                    </figure>
                 </section>
                 <section id="module-chatroom">
                     <h3>
@@ -234,7 +257,9 @@
                             express
                         </li>
                     </ul>
-                    <img src="../doc/chatroom/rest.png" alt="chatroom">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/chatroom/rest.png" alt="chatroom">
+                    </figure>
                 </section>
                 <section id="module-gesture-classifier">
                     <h3>
@@ -261,7 +286,9 @@
                             opencv
                         </li>
                     </ul>
-                    <img src="../doc/classifier/rest.png" alt="classifier">
+                    <figure typeof="sa:Image">
+                        <img src="../doc/classifier/rest.png" alt="classifier">
+                    </figure>
                 </section>
             </section>
             <section id="data">
@@ -270,16 +297,36 @@
                     Data Modelling
                 </h2>
                 <p>
-
+                    For this website application, we are proposing the use of json-ld format for data storage, such
+                    as events that are taking place along the components. (constant client-room, client-client interactions)
+                    Events recorded through users real-time video streaming are aiding in further varied statistics
+                    generation.
                 </p>
+                <p>
+                    We will be using MongoDB as main database service as it provides simple and efficient data manipulation
+                    methods.
+                </p>
+                <figure typeof="sa:Image">
+                    <img src="img/mongo.png" style="max-width: 150px;">
+                </figure>
             </section>
             <section typeof="sa:Conclusion" id="conclusion">
                 <h2>
                     <span>5. </span>
                     Conclusion
                 </h2>
-                <p>Bla bla bla.</p>
+                <p>
+                    There are many approaches on generating a solution for the problem of gesture analyzing,
+                    the way we have been planning upon to follow being one of the most common ones, a classifier
+                    implemented in python programming language with the use of opencv and other computer vision
+                    related libraries.
+                    As a plus, a simple chatroom website can provide an easy to learn platform for studies and
+                    research as it focuses more on the human interaction analyzing than the website complexity itself.
+                </p>
             </section>
             </article>
+            <footer>
+                <img src="../logo/gezr.ico">
+            </footer>
     </body>
 </html>
