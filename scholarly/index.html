@@ -297,7 +297,7 @@
                     Data Modelling
                 </h2>
                 <p>
-                    For this website application, we are proposing the use of json-ld format for data storage, such
+                    For this website application, we are proposing the use of JSON-ld format for data storage, such
                     as events that are taking place along the components. (constant client-room, client-client interactions)
                     Events recorded through users real-time video streaming are aiding in further varied statistics
                     generation.
@@ -307,7 +307,21 @@
                     methods.
                 </p>
                 <figure typeof="sa:Image">
-                    <img src="img/mongo.png" style="max-width: 150px;">
+                    <img src="img/mongo.png" style="max-width: 100px;" alt="mongodb">
+                </figure>
+                <p>
+                    A sample of a JSON-ld event related to a hand gesture (such as a wave):
+                </p>
+                <figure typeof="schema:SoftwareSourceCode">
+                    <meta property="schema:name" content="json">
+                    <pre property="schema:programmingLanguage" typeof="schema:Language">
+                        {
+                            "@id":"gezr.com/gesture#wave",
+                            "username": "user1",
+                            "time": "1606908746",
+                            "event": "wave"
+                        }
+                    </pre>
                 </figure>
             </section>
             <section typeof="sa:Conclusion" id="conclusion">
@@ -326,7 +340,7 @@
             </section>
             </article>
             <footer>
-                <img src="../logo/gezr.ico">
+                <img src="../logo/gezr.ico" alt="footer-logo">
             </footer>
     </body>
 </html>
