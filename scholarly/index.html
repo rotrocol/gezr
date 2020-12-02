@@ -11,6 +11,7 @@
         <header>
             <div class="banner">
                 <img class="banner" src="../logo/gezr.ico" alt="logo">
+                <div class="wtf">GEZR</div>
             </div>
         </header>
         <div role="contentinfo">
@@ -50,7 +51,7 @@
                     <a href="#data">Data Modelling</a>
                 </li>
                 <li>
-                    <span>4. </span>
+                    <span>5. </span>
                     <a href="#conclusion">Conclusion</a>
                 </li>
             </ol>
@@ -71,7 +72,12 @@
                     Abstract
                 </h2>
                 <p>
-                    WADE Cool Project Solution
+                    Our team is providing a solution for gesture analyzing implementing a web
+                    application in the form of a simple chatroom service open for users.
+                    In every room, each user is passively assuring study data through video
+                    streaming for gesture classification. Our application therefore detects,
+                    classifies, compares, and synchronizes hand and arm gestures performed by
+                    users and stores event data for further statistics creation.
                 </p>
             </section>
             <section id="introduction">
@@ -80,7 +86,11 @@
                     Introduction
                 </h2>
                 <p>
-                    A Web application that detects, classifies, compares, and synchronizes hand and arm gestures performed by users.
+                    Human gestures are globally intersected in meaning and usage therefore
+                    computational recognision aids greatly in artificial intelligence studies.
+                    Originating from any bodily motion but commonly from the face or the hand,
+                    they support emotional recognision and the materialisation of the idea that
+                    computers are starting to understand the human body language.
                 </p>
             </section>
             <section id="architecture">
@@ -89,7 +99,9 @@
                     Architecture
                 </h2>
                 <p>
-                    Gezr - Gesture Analyzer application follows a service based structure.
+                    Our Gezr - Gesture Analyzer application follows a service based structure.
+                    Communication between components is done using HTTP and Sockets, used for
+                    transfering video frames.
                 </p>
                 <img src="../doc/components.png" alt="components">
                 <section id="module-web">
@@ -97,13 +109,47 @@
                         <span>3.1 </span>
                         Web Interface
                     </h3>
-                    <p>Bla bla bla</p>
+                    <p>
+                        As a summary, the web interface requests the chat rooms list from the
+                        server and displays them on the "Chatrooms" page.
+                    </p>
+                    <p>
+                        When connecting to a room chat, the Web Interface sends a connect request
+                        to the room instance. If the request is succesfull it opens multiple sockets
+                        connections to send and receive video frames from the chat room server.
+                    </p>
+                    <p>
+                        It also receives events like user connecting, user disconnecting, and
+                        gestures from the chat room. The detected gestures are displayed on a little
+                        rectangular box in the corner of the video feed.
+                    </p>
+                    <h4>
+                        About page:
+                    </h4>
+                    <p>
+                        <i>Website welcoming page.</i>
+                    </p>
                     <img src="../doc/front/about.png" alt="about">
-                    <p>Bla bla bla</p>
+                    <h4>
+                        Chatroom selecting page:
+                    </h4>
+                    <p>
+                        <i>Page which provides the user all available chatrooms to join and get stats from.</i>
+                    </p>
                     <img src="../doc/front/chatrooms.png" alt="chatrooms">
-                    <p>Bla bla bla</p>
+                    <h4>
+                        Chatroom specific page:
+                    </h4>
+                    <p>
+                        <i>Special chatroom page in which users interact with each other and provide video stream data for backend usage.</i>
+                    </p>
                     <img src="../doc/front/chatroom.png" alt="chatroom">
-                    <p>Bla bla bla</p>
+                    <h4>
+                        Contact page:
+                    </h4>
+                    <p>
+                        <i>Page for project related contact purposes.</i>
+                    </p>
                     <img src="../doc/front/contact.png" alt="contact">
                 </section>
                 <section id="module-main-server">
@@ -111,7 +157,33 @@
                         <span>3.2 </span>
                         Main Server
                     </h3>
-                    <p>Bla bla bla</p>
+                    <p>
+                        The Server serves two roles:
+                    </p>
+                    <ul>
+                        <li>
+                            Serving the web application to the client
+                        </li>
+                        <li>
+                            Storing the informations of the chat rooms instances
+                        </li>
+                    </ul>
+                    <p>
+                        When a chat room instance is created it will do a POST request to the server
+                        to added to the chat rooms pool.
+                        The list of chat rooms can be obtained by doing a GET request at /chatrooms.
+                    </p>
+                    <h4>
+                        Used technologies:
+                    </h4>
+                    <ul>
+                        <li>
+                            nodejs
+                        </li>
+                        <li>
+                            express
+                        </li>
+                    </ul>
                     <img src="../doc/server/rest.png" alt="server">
                 </section>
                 <section id="module-chatroom">
@@ -119,7 +191,49 @@
                         <span>3.3 </span>
                         Chatroom
                     </h3>
-                    <p>Bla bla bla</p>
+                    <h4>
+                        Chat Room communication:
+                    </h4>
+                    <p>
+                        When instanced the chat room will do a POST request to the server with it's informations.
+                        The chat rooms can be secured with a password to avoid uninvited guests.
+                    </p>
+                    <h4>
+                        Web Client communication:
+                    </h4>
+                    <p>
+                        When a client is connected it will establish 3 socket connections to the chatroom:
+                    </p>
+                    <ul>
+                        <li>
+                            Input Socket - The video feed from the client will be transmitted through this socket
+                        </li>
+                        <li>
+                            Output Sockets - The video feed of each participant will be transmitted to the client through these sockets
+                        </li>
+                        <li>
+                            Event Sockets - Events such as user disconnecting, user connecting, user hand gestures,
+                            and group gestures will be sent through this socket
+                        </li>
+                    </ul>
+                    <h4>
+                        Data storing and statistics:
+                    </h4>
+                    <p>
+                        These events will be stored in a MongoDB database to compile statistics of interest.
+                        The statistics are accessible through a GET request on the /stats path.
+                    </p>
+                    <h4>
+                        Used technologies:
+                    </h4>
+                    <ul>
+                        <li>
+                            nodejs
+                        </li>
+                        <li>
+                            express
+                        </li>
+                    </ul>
                     <img src="../doc/chatroom/rest.png" alt="chatroom">
                 </section>
                 <section id="module-gesture-classifier">
@@ -127,7 +241,26 @@
                         <span>3.4 </span>
                         Gesture Classifier
                     </h3>
-                    <p>Bla bla bla</p>
+                    <p>
+                        Chat room instances are requesting connections for the Gesture Classifier in
+                        order to proceed with the gestures studying for a specific chat room.
+                    </p>
+                    <p>
+                        A successful connection through a socket is followed by a frame exchange
+                        (in a base64 format) and constant gesture study resulting in real time
+                        classifications (resulted json data).
+                    </p>
+                    <h4>
+                        Used technologies:
+                    </h4>
+                    <ul>
+                        <li>
+                            python
+                        </li>
+                        <li>
+                            opencv
+                        </li>
+                    </ul>
                     <img src="../doc/classifier/rest.png" alt="classifier">
                 </section>
             </section>
@@ -136,7 +269,9 @@
                     <span>4. </span>
                     Data Modelling
                 </h2>
-                <p>Bla bla bla.</p>
+                <p>
+
+                </p>
             </section>
             <section typeof="sa:Conclusion" id="conclusion">
                 <h2>

@@ -2,20 +2,29 @@ html {
     font-family: sans-serif;
 }
 
+body {
+    background-color: white;
+    max-width: 800px;
+    margin: auto;
+}
+
+img {
+    max-width: 700px;
+}
+
+p {
+    text-indent: 3em;
+    text-align: justify;
+}
+
 .banner {
     background-color: white;
+    display: inline;
     width: 100%;
 }
 
 img.banner {
     width: 80pt;
-}
-
-body {
-    background-color: white;
-    display: block;
-    max-width: 900px;
-    margin: auto;
 }
 
 ol {
