@@ -27,6 +27,14 @@ img.banner {
     width: 80pt;
 }
 
+footer {
+    text-align: center;
+}
+
+footer img {
+    max-width: 50px;
+}
+
 ol {
     list-style-type: none;
 }
