@@ -1,0 +1,44 @@
+swagger: '2.0'
+info:
+  description: Gezr Gesture Classifier
+  version: 1.0.0
+  title: Gezr Classifier
+  
+paths:
+  /connect:
+    post:
+      summary: Connect to classifier
+      operationId: connectClassifier
+      description: |
+        Method used to connect to classifier.
+        The classifier returns it's connection ports and an unique token
+        to be used when sending the video frames.
+      consumes:
+      - application/json
+      produces:
+      - aplication/json
+      parameters:
+      - in: body
+        name: UserInfo
+        schema:
+          type: object
+      responses:
+        200:
+          description: Connection informations and unique token
+          schema:
+            type: object
+            properties: 
+              error:
+                type: string
+                example: Error
+              token:
+                type: string
+                example: 1AqCmme11fFllYbZXjap
+              dataPort:
+                type: number
+                example: 3020
+              eventPort:
+                type: number
+                example: 3021
+        default:
+          description: Unexpected Error
